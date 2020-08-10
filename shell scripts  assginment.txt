@@ -1,0 +1,161 @@
+1)
+
+#!/bin/sh
+
+echo $USER
+echo $HOME
+echo $HISTCONTROL
+echo $TERM
+
+2)
+
+#!/bin/sh
+
+MYUSERNAME=$USER
+MYPASSWORD='password'
+STARTOFSCRIPT=`date`
+ENDOFSCRIPT=`date`
+
+echo 'username is ' $MYUSERNAME
+echo 'password is ' $MYPASSWORD
+echo 'Start time '  $STARTOFSCRIPT
+echo 'End time '    $ENDOFSCRIPT
+
+3)
+
+#!/bin/sh
+
+#########################################################################
+#
+#This script will print  the current logged in user and current directory
+#
+#########################################################################
+
+User=$USER # Setting User variable to current logged in user
+Pwd=`pwd`  # Setting pwd to present working directory
+
+echo 'User logged in is ' $User
+echo 'Current working directory is ' $Pwd
+
+4)
+
+#!/bin/sh
+
+#########################################################################
+#
+#This script will print one sentence to terminal and other semtemce to /dev/null
+#
+#########################################################################
+
+firstsentence='Setting User variable to current logged in user'
+secendsentence='Setting pwd to present working directory'
+
+echo 'First sentence is ' $firstsentence
+echo 'Second sentence  is '$secondsentence >> /dev/null
+
+5)
+
+#!/bin/sh
+
+#########################################################################
+#
+# This script will Evaluate an arithmetic expression, Attempt to remove a
+# file that does not exist in the current directory  and echo the exit
+# status of each command
+#
+#########################################################################
+
+a=5
+b=5
+c=`expr $a + $b `
+echo $c
+echo 'First arithematic expression exit status ' $?
+
+rm 1.txt
+echo 'File remove command  exit status ' $?
+
+d=`expr $a \* $b `
+echo $d
+echo 'Second arithematic expression exit status ' $?
+
+
+8)
+
+#!/bin/bash
+
+TODAYSDATE=`date`
+USERFILES=`find /home -user root`
+
+
+alias TODAY='echo `date`'
+alias UFILES='echo `find /home -user root`'
+
+
+echo $TODAYSDATE
+echo $USERFILES
+echo "$TODAY"
+echo $UFILES
+
+9)
+
+#!/bin/bash
+
+SERVERLIST=(host1,host2,host3,host4)
+for SERVERLIST in "${SERVERLIST[*]}"
+do
+echo $SERVERLIST
+done
+
+or
+
+#!/bin/bash
+
+SERVERLIST=(host1,host2,host3,host4)
+echo "${SERVERLIST[*]}"
+
+10)
+
+
+#!/bin/bash
+
+echo "Enter username"
+read n
+username=$n
+
+echo " Enter password"
+read m
+password=$m
+
+echo 'username is :' $username
+echo 'password is :' $password
+
+11)
+
+#!/bin/bash
+
+echo 'enter number between 1-5'
+read number
+secretnumber=5
+
+if [ $number == $secretnumber ]
+then
+   echo 'correct guess'
+else
+   echo 'wrong guess'
+fi
+
+12)
+
+#!/bin/bash
+
+echo "Enter number between 1-3: "
+read number
+a=1
+b=2
+c=3
+if [ $number == $a ] || [ $number == $b ] || [ $number == $c ]
+then
+   echo "Number is between 1-3 and number is: "  $number
+else
+   echo "Number is not between 1-3 and entered number is: " $number
+fi
